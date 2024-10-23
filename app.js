@@ -1,4 +1,3 @@
-// Inicializar variables y obtener elementos del DOM
 let currentSong = 0;
 
 const audio = document.getElementById('audio');
@@ -13,7 +12,6 @@ const imgArtist = document.getElementById('imgArtist');
 const nameArtist = document.getElementById('nameArtist');
 const nameSong = document.getElementById('nameSong');
 
-// Definir lista de reproducción
 const playList = [
   {
     title: 'God is a Woman',
@@ -31,7 +29,7 @@ const playList = [
     title: 'Breathin',
     artist: 'Ariana Grande',
     img: 'assets/img/breathin.jpg',
-    song: 'assets/audio/Ariana Grande - Breathin (Audio).mp3'
+    song: 'assets/audio/Ariana Grande - breathin.mp3'
   },
   {
     title: 'Be my Baby',
@@ -47,17 +45,14 @@ const playList = [
   },
 ];
 
-// Función para cargar una canción
 function loadSong(songIndex) {
   const song = playList[songIndex];
   audio.src = song.song;
   nameSong.textContent = song.title;
   nameArtist.textContent = song.artist;
   imgArtist.src = song.img;
-  audio.play(); // Opcional si deseas reproducir automáticamente
+  audio.play();
 }
-
-// Eventos para controlar el reproductor
 play.addEventListener('click', () => audio.play());
 pause.addEventListener('click', () => audio.pause());
 rewind.addEventListener('click', () => audio.currentTime -= 10);
@@ -78,5 +73,4 @@ skipPrevious.addEventListener('click', () => {
   loadSong(currentSong);
 });
 
-// Cargar la primera canción al iniciar
 loadSong(currentSong);
